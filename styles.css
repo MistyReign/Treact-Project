@@ -9,6 +9,8 @@
 body {
     max-width: 100vw;
     overflow-x: hidden;
+    color: #9ca3af;
+    font-size: 20px;
 }
 
 .row {
@@ -52,10 +54,16 @@ nav {
 
 .nav__row {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
     padding: 0 32px;
+}
+
+.menu__container {
+    display: flex;
+    align-items: center;
+    margin-left: 0;
 }
 
 .nav__logo {
@@ -86,7 +94,7 @@ img {
     margin-left: auto;
     margin-right: 30px;
     gap: 50px;
-    font-size: 18px;
+    font-size: 20px;
     color:black;
     list-style: none;
 }
@@ -100,7 +108,7 @@ img {
     display: flex;
     flex-direction: row;
     color:black;
-    font-size: 18px;
+    font-size: 20px;
     height: 0 auto;
     padding-left: 80px;
 }
@@ -109,7 +117,7 @@ img {
     background-color: #630dee; 
     color: white;
     padding: 10px 40px;
-    font-size: 20px;
+    font-size: 22px;
     border: none;
     border-radius: 20px;
     cursor: pointer;
@@ -130,7 +138,8 @@ img {
     position: fixed;
     top: 0;left: 0;
     right: 0;
-    height: 378px;
+    min-height: 450px;
+    height: auto;
     margin: 24px 16px;
     padding: 32px;
     background-color: #fff;
@@ -150,11 +159,22 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 24px;
+    color: #000;
+}
+
+.menu__link {
+    text-decoration: none;
+    font-size: 24px;
+    color: #000;
 }
 
 .menu__list {
-    color: #1a202c;
-    font-size: 18px;
+    color: #000;
+    font-size: 24px;
     font-weight: 600;
     line-height: 1.5;
     margin: 8px 0;
@@ -164,10 +184,11 @@ img {
 
 .menu__link--primary {
     color: #f7fafc;
-    padding: 12px 32px;
+    padding: 16px 40px;
     background: #6415ff;
     border-radius: 500px;
     border: none;
+    font-size: 20px;
 }
 
 .menu--open .menu__backdrop {
@@ -184,13 +205,13 @@ img {
 
 .btn__menu {
     display: none;
+    border: none;
+    background: transparent;
+    font-size: 2.5rem;
+    color: #6415ff;
+    cursor: pointer;
+    padding: 0.75rem 0.9rem;
 }
-
-/*
-
-HEADER/ABOUT US
-
-*/
 
 .container {
     display: flex;
@@ -215,6 +236,7 @@ header .header__description h1 {
     font-weight: 700;
     line-height: 1.05;
     white-space: nowrap;
+    color: #000;
 }
 
 .no-wrap {
@@ -243,9 +265,9 @@ header .header__description h1 {
 }
 
 .customer__strip p {
-    color: #9ca3af;
+    color: #d1d5db;
     margin: 0 0 14px 0;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 1.45;
 }
 
@@ -253,6 +275,8 @@ header .header__description h1 {
     display: block;
     width: min(560px, 100%);
     max-width: 100%;
+    opacity: 0.68;
+    filter: grayscale(100%) brightness(1.06);
 }
 
 .header__description h1 {
@@ -262,11 +286,13 @@ header .header__description h1 {
 
 .header__description p {
     display: inline-block;
-    white-space: pre-line !important;
-    font-size: 22px;
+    white-space: pre;
+    font-size: 24px;
     line-height: 1.5;
+    color: #3f3f46;
     margin: 0;
-    width: min(700px, 100%);
+    width: auto;
+    max-width: 100%;
 }
 
 .email__btn {
@@ -277,11 +303,23 @@ header .header__description h1 {
 .email__btn input {
     width: 100%;
     border-radius: 9999px;
-    border-width: 2px;
+    border: 2px solid #d1d5db;
     padding: 2rem 11rem 2rem 1.5rem;
     font-weight: 500;
+    color: #4a4a4a;
+    font-size: 22px;
     transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
     transition-duration: 300ms;
+}
+
+.email__btn input::placeholder,
+.email__btn input::-webkit-input-placeholder,
+.email__btn input:-ms-input-placeholder,
+.email__btn input::-ms-input-placeholder,
+.email__btn input::-moz-placeholder {
+    color: #e5e7eb;
+    opacity: 1;
+    font-size: 22px;
 }
 
 .email__btn .btn {
@@ -303,7 +341,7 @@ header .header__description h1 {
     width: 960px;
     max-width: 100%;
     position: static; /* keep in normal flow so it sits beside the description */
-    margin-left: 180px;
+    margin-left: 90px;
     margin-right: 100px;
     transform: translate(0, 20px);
 }
@@ -332,18 +370,108 @@ header .header__description h1 {
         max-width: 100%;
     }
 
+    header .header__description h1 {
+        display: inline-flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        white-space: normal;
+        font-size: 42px;
+        line-height: 1.05;
+    }
+
+    header .header__description h1 br {
+        display: none;
+    }
+
+    header .header__description p {
+        white-space: normal;
+    }
+
+    header .header__description p br:last-of-type {
+        display: none;
+    }
+
+    /* On smaller screens, move the word 'Fully' up by hiding the first manual break */
+    header .header__description p br:first-of-type {
+        display: none;
+    }
+
     header .img__design {
         position: static;
-        width: 100%;
-        margin-left: 0;
+        width: 88%;
+        margin-left: auto;
+        margin-right: auto;
         transform: none;
     }
 
     .img__design {
         position: static;
-        width: 100%;
-        margin-left: 0;
+        width: 88%;
+        margin-left: auto;
+        margin-right: auto;
         transform: none;
+    }
+
+    .nav__links {
+        display: none;
+    }
+
+    .nav__link--primary {
+        display: none;
+    }
+
+    .menu__container {
+        margin-left: auto;
+    }
+
+    .btn__menu {
+        display: block;
+        padding: 0;
+        border-radius: 0;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        color: #6415ff;
+        font-size: 2rem;
+    }
+
+    .email__btn {
+        width: min(620px, 100%);
+    }
+
+    .email__btn input {
+        padding: 2.5rem 7.5rem 2.5rem 1rem;
+    }
+
+    .email__btn .btn {
+        padding: 2rem 3.4rem;
+        line-height: 1;
+    }
+
+    .customer__strip {
+        align-items: center;
+        text-align: center;
+        margin-top: 14px;
+    }
+
+    .customer__strip p {
+        margin: 0 0 14px 0;
+        text-align: center;
+        color: #c7ccd4;
+        font-size: 20px;
+    }
+
+    .customer__strip .img__strip {
+        width: min(620px, 100%);
+        margin: 0 auto;
+        opacity: 0.68;
+        filter: grayscale(100%) brightness(1.06);
+    }
+}
+
+@media (max-width: 550px) {
+    .btn__menu {
+        display: block;
     }
 }
 
@@ -356,6 +484,13 @@ header .header__description h1 {
 @media (max-width: 1024px) {
     .btn__menu {
         display: block;
+    }
+}
+
+@media (min-width: 1025px) {
+    .customer__strip p {
+        color: #c7ccd4;
+        font-size: 18px;
     }
 }
 
